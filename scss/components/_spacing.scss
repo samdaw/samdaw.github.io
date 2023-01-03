@@ -1,0 +1,35 @@
+// The space and break between all sections
+section,
+footer {
+   margin-top: 6rem;
+
+   @include breakpoint(md) {
+      margin-top: 8rem;
+   }
+
+   @include breakpoint(lg) {
+      margin-top: 10rem;
+   }
+
+   @include breakpoint(xl) {
+      margin-top: 12rem;
+   }
+}
+
+// The page margin set by grid class
+.margin {
+   padding: 0 1.25rem;
+
+   @include breakpoint(md) {
+      padding: 0 3rem;
+   }
+
+   @include breakpoint(lg) {
+      padding: 0 4.5rem;
+   }
+
+   @include breakpoint(xl) {
+      padding: 0 5rem;
+      max-width: $max-width;
+   }
+}

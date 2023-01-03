@@ -1,0 +1,137 @@
+html {
+   font-size: 16px;
+   // font-size: calc(0.625vmin + 0.75rem)
+   //responsive base font size: 14px at 320, 20px at 1280 vmin
+}
+
+
+body {
+   font-family: 'Inter', sans-serif;
+   color: var(--color-front);
+}
+
+* ::selection {
+   background: var(--color-bright);
+}
+
+p {
+   @include text(1rem, 160%, 400);
+   font-size: calc(1rem + .175vw);
+   margin-bottom: 1rem;
+}
+
+.p0,
+.p0 p {
+   @include text(.85rem, 160%, 400);
+   font-size: calc(.85rem + .25vw);
+}
+
+.p1,
+.p1 p {
+   @include text(1.25rem, 160%, 400);
+   font-size: calc(1.25rem + .25vw);
+}
+
+.p2,
+.p2 p {
+   @include text(1.5rem, 150%, 400);
+   font-size: calc(1.5rem + .25vw);
+}
+
+a {
+   color: var(--color-front);
+
+   &:hover {
+      color: var(--color-front2);
+      text-decoration: none;
+   }
+
+   &:active {
+      background-color: var(--color-bright);
+   }
+}
+
+.forward::after {
+   content: " →";
+
+   &:hover {
+      text-decoration: none;
+   }
+}
+
+h1,
+.h1 {
+   @include text(7rem, 110%, 700);
+   font-size: calc(2rem + 6vw);
+   letter-spacing: -0.02em;
+   margin-bottom: 2rem;
+
+   @include breakpoint(md) {
+      margin-bottom: 2.5rem;
+   }
+
+   @include breakpoint(lg) {
+      margin-bottom: 3rem;
+   }
+
+   @include breakpoint(xl) {
+      margin-bottom: 4rem;
+   }
+}
+
+h2,
+.h2 {
+   @include text(5rem, 110%, 700);
+   font-size: calc(1.5rem + 4.5vw);
+   letter-spacing: -0.01em;
+   margin-bottom: 1.5rem;
+
+   @include breakpoint(md) {
+      margin-bottom: 2rem;
+   }
+
+   @include breakpoint(lg) {
+      margin-bottom: 2.5rem;
+   }
+
+   @include breakpoint(xl) {
+      margin-bottom: 3rem;
+   }
+}
+
+h3,
+.h3 {
+   @include text(3rem, 110%, 700);
+   font-size: calc(1.5rem + 2vw);
+   letter-spacing: -0.01em;
+   margin-bottom: 3rem;
+}
+
+.uppercase,
+.uppercase p {
+   text-transform: uppercase;
+}
+
+.bold,
+.bold p {
+   font-weight: 700;
+}
+
+.semibold,
+.semibold p {
+   font-weight: 600;
+}
+
+
+ul {
+   margin-left: 18px;
+}
+// ul {
+//    // line-height: 1.8;
+//    // margin-left: -20px;
+//    /* list-style-position: inside; */
+// }
+
+// ul li:not(:last-child) {
+//    margin-bottom: 20px;
+// }
