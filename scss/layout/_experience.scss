@@ -1,13 +1,17 @@
-//full screen pictures at 80vh
 .picture {
    display: flex;
    align-items: center;
-   height: 50vh;
    width: 100%;
 
-   @include breakpoint(md) {
-      height: 85vh;
-   }
+   // might be able to delete this later
+   // height: 50vh;
+   // @include breakpoint(md) {
+   //    height: 60vh;
+   // }
+
+   // @include breakpoint(lg) {
+   //    height: 85vh;
+   // }
 
    div {
       display: flex;
@@ -29,8 +33,13 @@
             background-position: center center;
 
             @include breakpoint(md) {
-               height: 85vh;
+               height: 60vh;
             }
+         
+            @include breakpoint(lg) {
+               height: 90vh;
+            }
+
          }
       }
    }
@@ -41,7 +50,6 @@
    overflow-x: scroll;
    scroll-snap-type: x mandatory;
    overscroll-behavior-x: contain;
-
    picture {
       scroll-snap-align: start;
       flex-shrink: 0;
@@ -100,11 +108,11 @@
 }
 
 
-.quote {
-   display: flex;
-   flex-direction: row;
-   picture {
-         width: 80px;
-         height: 80px;
-   }
-}
+// .quote {
+//    display: flex;
+//    flex-direction: row;
+//    picture {
+//          width: 80px;
+//          height: 80px;
+//    }
+// }

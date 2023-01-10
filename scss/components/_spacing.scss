@@ -16,10 +16,17 @@ footer {
    }
 }
 
-// The page margin set by grid class
+// The page margin
 .margin {
    padding: 0 1.25rem;
+}
 
+.nomargin {
+   padding: 0;
+}
+
+.nomargin,
+.margin {
    @include breakpoint(md) {
       padding: 0 3rem;
    }
