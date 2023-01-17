@@ -1,3 +1,4 @@
+// colour theme
 function updateHue() {
   var timeNow = new Date(),
   seconds = timeNow.getSeconds() * 6;

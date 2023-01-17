@@ -70,10 +70,10 @@ pre {
    color: unset;
 }
 
-/* remove default dot (•) sign */
-::marker {
-   content: "";
-}
+// /* remove default dot (•) sign */
+// ::marker {
+//    content: "";
+// }
 
 /* fix the feature of 'hidden' attribute.
    display:revert; revert to element instead of attribute */
