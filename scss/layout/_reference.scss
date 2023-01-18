@@ -1,20 +1,21 @@
 
+.reference div {
 
-// .quote {
-//    display: flex;
-//    flex-direction: row;
+   > div {
+      display: flex;
+      flex-direction: column;
 
-//    picture {
-//       
-//    }
-// }
+      @include breakpoint(xl) {
+         flex-direction: row;
+      }
+   }
 
-.reference {
-
-   picture img {
+   picture {
       width: 5rem;
       height: 5rem;
-      border-radius: 100px;
+      opacity: 0.9;
+      flex-shrink: 0;
+      
 
       @include breakpoint(md) {
          width: 6rem;
@@ -24,12 +25,14 @@
       @include breakpoint(lg) {
          width: 7rem;
          height: 7rem;
+         margin-right: 2rem;
+         margin-top: .5rem;
       }
 
-   }
-
-   div {
-
-
+      img,
+      &::before {
+         border-radius: 100px;
+         flex-shrink: 0;
+      }
    }
 }

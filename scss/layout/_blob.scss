@@ -1,0 +1,59 @@
+.blob {
+   background: var(--color-bright);
+   border-radius: 100%;
+   height: 3rem;
+   width: 3rem;
+
+   @include breakpoint(md) {
+      height: 4rem;
+      width: 4rem;
+   }
+
+   @include breakpoint(lg) {
+      height: 4.5rem;
+      width: 4.5rem;
+   }
+
+   @include breakpoint(xl) {
+      height: 5rem;
+      width: 5rem;
+   }
+}
+
+header {
+   .blob {
+      // borrowed from section spacing, could combine
+      margin-top: 6rem;
+      @include breakpoint(md) {
+         margin-top: 8rem;
+      }
+
+      @include breakpoint(lg) {
+         margin-top: 10rem;
+      }
+
+      @include breakpoint(xl) {
+         margin-top: 12rem;
+      }
+   }
+}
+
+footer {
+   .blob {
+      justify-self: end;
+      align-self: end;
+      margin-bottom: 6rem;
+
+      @include breakpoint(md) {
+         margin-bottom: 8rem;
+      }
+   
+      @include breakpoint(lg) {
+         margin-bottom: 10rem;
+      }
+   
+      @include breakpoint(xl) {
+         margin-bottom: 12rem;
+      }
+   }
+}
