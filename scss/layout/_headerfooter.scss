@@ -1,7 +1,5 @@
 header,
 footer {
-   min-height: 100vh;
-   background: var(--color-back2);
    & > * {
       margin: 1.25rem 0;
       @include breakpoint(md) {
@@ -43,4 +41,9 @@ header h1 {
    font-size: 17vw;
    letter-spacing: -0.03em;
    line-height: .75;
+}
+
+header,
+.profile {
+   background: var(--color-bright);
 }

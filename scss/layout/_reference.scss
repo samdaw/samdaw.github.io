@@ -1,0 +1,35 @@
+
+
+// .quote {
+//    display: flex;
+//    flex-direction: row;
+
+//    picture {
+//       
+//    }
+// }
+
+.reference {
+
+   picture img {
+      width: 5rem;
+      height: 5rem;
+      border-radius: 100px;
+
+      @include breakpoint(md) {
+         width: 6rem;
+         height: 6rem;
+      }
+
+      @include breakpoint(lg) {
+         width: 7rem;
+         height: 7rem;
+      }
+
+   }
+
+   div {
+
+
+   }
+}

@@ -1,21 +1,19 @@
-section {
-   padding: 3rem 0;
-}
-
-.sliderr {
+.slider {
    display: flex;
    align-items: center;
    position: relative;
 
    .slider_counter {
       position: absolute;
-      top: 24px;
-      right: 24px;
+      top: 2rem;
+      right: 2rem;
       padding: 8px 12px;
-      background: #817c7e;
+      background: rgba(102, 102, 102, 0.8);
       color: #ffffff;
       z-index: 100;
       border-radius: 100px;
+      font-size: .8rem;
+      font-weight: 500;
    }
 
    .slider_slides {
@@ -27,7 +25,10 @@ section {
       overscroll-behavior-x: contain;
       gap: 0;
 
-      figure,
+      @include breakpoint(md) {
+         border-radius: .5rem;
+      }
+
       picture {
          scroll-snap-align: start;
          flex-shrink: 0;
@@ -58,7 +59,7 @@ section {
    pointer-events: none;
    visibility: hidden;
 
-   @media (min-width: 700px) {
+   @include breakpoint(md) {
       visibility: visible;
    }
 
