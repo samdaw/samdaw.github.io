@@ -1,0 +1,22 @@
+:root {
+   --saturation: 35%;
+   --color-front: hsl(var(--hue), var(--saturation), 10%);
+   --color-front2: hsl(var(--hue), var(--saturation), 18%);
+   --color-back: hsl(var(--hue), var(--saturation), 97%);
+   --color-back2: hsl(var(--hue), var(--saturation), 93%);
+   --color-back3: hsl(var(--hue), var(--saturation), 89%);
+   --color-back4: hsl(var(--hue), var(--saturation), 85%);
+   --color-bright: hsl(var(--hue), 60%, 60%);
+
+   @include theme(dark) {
+      --hue: 220;
+      --saturation: 35%;
+      --color-front: hsl(var(--hue), var(--saturation), 97%);
+      --color-front2: hsl(var(--hue), var(--saturation), 89%);
+      --color-back: hsl(var(--hue), var(--saturation), 7%);
+      --color-back2: hsl(var(--hue), var(--saturation), 9%);
+      --color-back3: hsl(var(--hue), var(--saturation), 11%);
+      --color-back4: hsl(var(--hue), var(--saturation), 15%);
+      --color-bright: hsl(var(--hue), 62%, 42%);
+   }
+}

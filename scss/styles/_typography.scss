@@ -2,7 +2,6 @@
 html {
    font-size: 16px;
    // font-size: calc(0.625vmin + 0.75rem)
-   //responsive base font size: 14px at 320, 20px at 1280 vmin
 }
 
 body {
@@ -18,27 +17,29 @@ body {
 // paragraph
 p {
    @include text(1rem, 160%, 400);
-   font-size: calc(1rem + .175vw);
+   // font-size: calc(1rem + .15vw);
+   font-size: calc(0.85rem + 0.625vmin);
    margin-bottom: 1rem;
 }
 
-.p0,
-.p0 p {
-   @include text(.85rem, 160%, 400);
-   font-size: calc(.85rem + .25vw);
-}
+// .p0,
+// .p0 p {
+//    // @include text(.85rem, 160%, 400);
+//    // font-size: calc(.85rem + .25vw);
+// }
 
 .p1,
 .p1 p {
    @include text(1.25rem, 160%, 400);
-   font-size: calc(1.25rem + .25vw);
+   // font-size: calc(1.25rem + .25vw);
+   font-size: calc(1rem + 0.625vmin);
 }
 
-.p2,
-.p2 p {
-   @include text(1.5rem, 150%, 400);
-   font-size: calc(1.5rem + .25vw);
-}
+// .p2,
+// .p2 p {
+//    @include text(1.5rem, 150%, 400);
+//    font-size: calc(1.5rem + .25vw);
+// }
 
 
 // heading

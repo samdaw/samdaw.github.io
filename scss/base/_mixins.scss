@@ -30,15 +30,15 @@
    }
 }
 
-@mixin theme($colour) {
-   @if $colour ==light {
-      @media (prefers-color-scheme: light) {
+@mixin theme($color) {
+   @if $color ==light {
+      @media (prefers-color-scheme: $light) {
          @content ;
       }
    }
 
-   @else if $colour ==dark {
-      @media (prefers-color-scheme: dark) {
+   @else if $color ==dark {
+      @media (prefers-color-scheme: $dark) {
          @content ;
       }
    }

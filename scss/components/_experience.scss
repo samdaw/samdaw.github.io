@@ -19,3 +19,9 @@
       }
    }
 }
+
+.experience {
+   @include theme(light) {
+      background: #ffffff;
+   }
+}

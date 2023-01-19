@@ -8,7 +8,7 @@
       top: 2rem;
       right: 2rem;
       padding: 6px 10px;
-      background: rgba(102, 102, 102, 0.6);
+      background: rgba(70, 70, 70, 0.7);
       color: #ffffff;
       z-index: 100;
       border-radius: 100px;
@@ -17,7 +17,6 @@
       letter-spacing: .05rem;
       min-width: 43px;
       height: 27px;
-      text-align: right;
 
       @include breakpoint(md) {
          display: none;
@@ -72,51 +71,41 @@
    }
 
    button {
-      font-family: sans-serif;
-      background: black;
-      color: white;
-      padding: 1rem;
       transition: all 0.2s ease-in-out;
       pointer-events: initial;
+      background: rgba(255, 255, 255, 0.7);
+      margin: .5rem;
+      padding: .2rem;
+      border-radius: .25rem;
+      @include breakpoint(lg) {
+         margin: 1.5rem;
+         padding: .3rem;
+      }
+      svg {
+         width: 2rem;
+         fill: none;
+         @include breakpoint(lg) {
+               width: 2.5rem;
+            }
+         path {
+            stroke: #000;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 3;
+         }
+      }
 
       &:hover {
-         background: gray;
+         background: rgba(255, 255, 255, 1);
          cursor: pointer;
       }
    }
 }
 
-.slider {
-   * {
-      &::-webkit-scrollbar {
-         height: .5rem;
-         width: .5rem;
-         background: rgba(102, 102, 102, 0.1);
-         margin: 2rem;
-         padding: 2rem;
-         border-radius: 10px;
-         bottom: 10px;
-      }
 
-      &::-webkit-scrollbar-thumb {
-         &:horizontal {
-            background: red;
-            border-radius: 10px;
-            margin: 2rem;
-               padding: 2rem;
-               right: 40px;
-         }
-      }
+// Remove scroll bar
+.slider * {
+   &::-webkit-scrollbar {
+      display: none;
    }
 }
-
-//  ::-webkit-scrollbar {
-//     height: 4px;
-//     width: 4px;
-//     background: gray;
-//  }
-
-//  ::-webkit-scrollbar-thumb:horizontal {
-//     background: #000;
-//     border-radius: 10px;
-//  }
