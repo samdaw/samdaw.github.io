@@ -22,26 +22,31 @@ footer {
 }
 
 // The page margin
-.margin {
-   margin: 0 1.25rem;
+.nomargin {
+   margin-left: 0;
+   margin-right: 0;
 }
 
-.nomargin {
-   margin: 0;
+.margin {
+   margin-left: 1.25rem;
+   margin-right: 1.25rem;
 }
 
 .nomargin,
 .margin {
    @include breakpoint(md) {
-      margin: 0 3rem;
+      margin-left: 3rem;
+      margin-right: 3rem;
    }
 
    @include breakpoint(lg) {
-      margin: 0 4.5rem;
+      margin-left: 4.5rem;
+      margin-right: 4.5rem;
    }
 
    @include breakpoint(xl) {
-      margin: 0 5rem;
+      margin-left: 5rem;
+      margin-right: 5rem;
       max-width: $max-width;
    }
 }

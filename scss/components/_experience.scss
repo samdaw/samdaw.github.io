@@ -1,5 +1,9 @@
 .experience article {
    margin-bottom: 6rem;
+
+   div h2 {
+      margin-bottom: 0;
+   }
 }
 
 
@@ -24,4 +28,5 @@
    @include theme(light) {
       background: #ffffff;
    }
+
 }
