@@ -35,6 +35,7 @@ function slide(direction, slider) {
 
 if (sliders.length) {
    for (let i = 0; i < sliders.length; i++) {
+
       const nav = document.createElement("nav");
       nav.classList.add("slider_nav");
 
@@ -67,8 +68,5 @@ if (sliders.length) {
             Math.floor(sliders[i].scrollLeft / sliders[i].clientWidth) + 1;
          counter.innerHTML = currentSlide + "/" + sliders[i].children.length;
       });
-
-      // Add the scrollbar class to the parent div
-      sliders[i].parentElement.classList.add("scrollbar");
    }
 }

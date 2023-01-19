@@ -1,18 +1,23 @@
 // The space and break between all sections
 section,
+header,
 footer {
-   margin-top: 6rem;
+   padding-top: 3rem;
+   padding-bottom: 3rem;
 
    @include breakpoint(md) {
-      margin-top: 8rem;
+      padding-top: 4rem;
+      padding-bottom: 4rem;
    }
 
    @include breakpoint(lg) {
-      margin-top: 10rem;
+      padding-top: 5rem;
+      padding-bottom: 5rem;
    }
 
    @include breakpoint(xl) {
-      margin-top: 12rem;
+      padding-top: 6rem;
+      padding-bottom: 6rem;
    }
 }
 
