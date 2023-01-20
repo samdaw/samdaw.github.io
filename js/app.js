@@ -42,14 +42,14 @@ if (sliders.length) {
       const prevButton = document.createElement("button");
       prevButton.title = "Previous slide";
       prevButton.dataset.prev = true;
-      prevButton.innerHTML = `<svg viewBox="0 0 45 54"><path d="M28 39.6 14.5 27 28 14.4"/></svg>`;
+      prevButton.innerHTML = `<svg viewBox="0 0 45 54" alt="Previous slide"><path d="M28 39.6 14.5 27 28 14.4"/></svg>`;
       prevButton.addEventListener("click", () => slide("prev", sliders[i]));
       nav.appendChild(prevButton);
 
       const nextButton = document.createElement("button");
       nextButton.title = "Next slide";
       nextButton.dataset.next = true;
-      nextButton.innerHTML = `<svg viewBox="0 0 45 54"><path d="M17 14.4 30.5 27 17 39.6"/></svg>`;
+      nextButton.innerHTML = `<svg viewBox="0 0 45 54" alt="Next slide"><path d="M17 14.4 30.5 27 17 39.6"/></svg>`;
 
       nextButton.addEventListener("click", () => slide("next", sliders[i]));
       nav.appendChild(nextButton);

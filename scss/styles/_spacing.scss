@@ -1,4 +1,4 @@
-// The space and break between all sections
+// Space between all sections
 section,
 header,
 footer {
@@ -47,6 +47,11 @@ footer {
    @include breakpoint(xl) {
       margin-left: 5rem;
       margin-right: 5rem;
+   }
+}
+
+html {
+   @include breakpoint(xl) {
       max-width: $max-width;
       margin: auto;
    }

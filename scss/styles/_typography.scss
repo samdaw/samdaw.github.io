@@ -1,4 +1,4 @@
-// base
+// Base
 html {
    font-size: 16px;
    // font-size: calc(0.625vmin + 0.75rem)
@@ -14,10 +14,10 @@ body {
 }
 
 
-// paragraph
+// Paragraph
 p {
    @include text(1rem, 160%, 400);
-   font-size: calc(0.7rem + 0.85vmin);
+   font-size: calc(0.75rem + 0.8vmin);
    margin-bottom: 1rem;
 }
 
@@ -28,7 +28,7 @@ p {
 }
 
 
-// heading
+// Heading
 h1,
 .h1 {
    @include text(7rem, 125%, 700);
@@ -69,17 +69,17 @@ h2,
    }
 }
 
-h3,
-.h3 {
-   @include text(30rem, 110%, 700);
-   font-size: calc(1.5rem + 2vw);
-   letter-spacing: -0.01em;
-   margin-bottom: 3rem;
-   color: red;
-}
+// h3,
+// .h3 {
+//    @include text(30rem, 110%, 700);
+//    font-size: calc(1.5rem + 2vw);
+//    letter-spacing: -0.01em;
+//    margin-bottom: 3rem;
+//    color: red;
+// }
 
 
-// transforms
+// Transform
 .uppercase,
 .uppercase p {
    text-transform: uppercase;
@@ -101,7 +101,7 @@ ul {
 }
 
 
-// links
+// Links
 a {
    text-decoration: none;
    color: var(--color-front);

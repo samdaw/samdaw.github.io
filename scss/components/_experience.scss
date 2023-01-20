@@ -15,12 +15,9 @@
 
 .profile {
    picture {
-      opacity: 0.95;
-
       img,
       &::before {
          border-radius: .5rem;
       }
-      
    }
 }
