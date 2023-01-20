@@ -10,10 +10,6 @@
       object-fit: cover;
       mix-blend-mode: multiply;
       background: var(--color-bright);
-      opacity: .1;
-      // @include theme(dark) {
-      //    background: var(--color-bright);
-      //    opacity: .1;
-      // }
+      opacity: .06;
    }
 }
