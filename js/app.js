@@ -12,6 +12,7 @@ updateHue();
 
 
 const sliders = document.querySelectorAll("[data-slider]");
+let currentSlide = 0
 
 function slide(direction, slider) {
    let left;
@@ -32,6 +33,7 @@ function slide(direction, slider) {
       behavior: "smooth"
    });
 }
+
 
 if (sliders.length) {
    for (let i = 0; i < sliders.length; i++) {
@@ -63,24 +65,31 @@ if (sliders.length) {
       sliders[i].parentElement.insertBefore(counter, sliders[i]);
 
       // update counter on slide
-      sliders[i].addEventListener("scroll", () => {
-         const currentSlide =
-            Math.floor(sliders[i].scrollLeft / sliders[i].clientWidth) + 1;
-         counter.innerHTML = currentSlide + "/" + sliders[i].children.length;
-      });
+      const options = {
+         root: sliders[i],
+         rootMargin: "0px",
+         threshold: 0.5
+      }
 
+      const observer = new IntersectionObserver((entries, observer) => {
+         entries.forEach(entry => {
+            if (entry.isIntersecting) {
+               const currentSlide = entry.target.dataset.slide;
+               counter.innerHTML = currentSlide + "/" + sliders[i].children.length;
+            }
+         });
+      }, options);
+
+      for (let j = 0; j < sliders[i].children.length; j++) {
+         sliders[i].children[j].dataset.slide = j + 1;
+         observer.observe(sliders[i].children[j]);
+      }
+
+      // old option to update counter on slide
       // sliders[i].addEventListener("scroll", () => {
       //    const currentSlide =
       //       Math.floor(sliders[i].scrollLeft / sliders[i].clientWidth) + 1;
       //    counter.innerHTML = currentSlide + "/" + sliders[i].children.length;
       // });
-
-      sliders[i].addEventListener("scroll", () => {
-         requestAnimationFrame(() => {
-            const currentSlide =
-               Math.floor(sliders[i].scrollLeft / sliders[i].clientWidth) + 1;
-            counter.innerHTML = currentSlide + "/" + sliders[i].children.length;
-         });
-      });
    }
 }
