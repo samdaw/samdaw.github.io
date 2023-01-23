@@ -68,5 +68,19 @@ if (sliders.length) {
             Math.floor(sliders[i].scrollLeft / sliders[i].clientWidth) + 1;
          counter.innerHTML = currentSlide + "/" + sliders[i].children.length;
       });
+
+      // sliders[i].addEventListener("scroll", () => {
+      //    const currentSlide =
+      //       Math.floor(sliders[i].scrollLeft / sliders[i].clientWidth) + 1;
+      //    counter.innerHTML = currentSlide + "/" + sliders[i].children.length;
+      // });
+
+      sliders[i].addEventListener("scroll", () => {
+         requestAnimationFrame(() => {
+            const currentSlide =
+               Math.floor(sliders[i].scrollLeft / sliders[i].clientWidth) + 1;
+            counter.innerHTML = currentSlide + "/" + sliders[i].children.length;
+         });
+      });
    }
 }

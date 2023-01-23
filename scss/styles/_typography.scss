@@ -1,10 +1,6 @@
 // Base
 html {
    font-size: 16px;
-   // font-size: calc(0.625vmin + 0.75rem)
-}
-
-body {
    font-family: 'Inter', sans-serif;
    color: var(--color-front);
 }
@@ -16,23 +12,20 @@ body {
 
 // Paragraph
 p {
-   @include text(1rem, 160%, 400);
-   font-size: calc(0.75rem + 0.8vmin);
+   @include text(calc(0.75rem + 0.8vmin), 160%, 400);
    margin-bottom: 1rem;
 }
 
 .p1,
 .p1 p {
-   @include text(1.2rem, 160%, 400);
-   font-size: calc(.95rem + 0.8vmin);
+   @include text(calc(.95rem + 0.8vmin), 160%, 400);
 }
 
 
 // Heading
 h1,
 .h1 {
-   @include text(7rem, 125%, 700);
-   font-size: calc(2rem + 6vw);
+   @include text(calc(2rem + 5vw), 125%, 700);
    letter-spacing: -0.02em;
    margin-bottom: 3rem;
 
@@ -51,8 +44,7 @@ h1,
 
 h2,
 .h2 {
-   @include text(5rem, 125%, 700);
-   font-size: calc(1.5rem + 4.5vw);
+   @include text(calc(1.5rem + 4vw), 125%, 700);
    letter-spacing: -0.02em;
    margin-bottom: 2rem;
 
@@ -134,11 +126,3 @@ a {
       }
    }
 }
-
-// .forward::after {
-//    content: " →";
-
-//    &:hover {
-//       text-decoration: none;
-//    }
-// }
