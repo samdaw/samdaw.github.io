@@ -55,8 +55,8 @@
    .slider_dots {
       display: flex;
       justify-content: center;
-      gap: 0.25rem;
-      margin-top: 0.75rem;
+      gap: 0.3rem;
+      margin-top: 1.25rem;
 
       @include breakpoint(md) {
          display: none;
@@ -66,9 +66,9 @@
          width: 0.4rem;
          height: 0.4rem;
          background-color: var(--color-front);
-         opacity: 0.5;
+         opacity: 0.4;
          border-radius: 50%;
-         transition: background-color 0.25s ease;
+         transition: 0.25s ease;
 
          &.active {
             background-color: var(--color-bright);

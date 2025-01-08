@@ -86,7 +86,7 @@ ul {
 
 // Links
 a {
-   text-decoration: none;
+   text-decoration: underline;
    color: var(--color-front);
    
    &:active {
@@ -94,6 +94,7 @@ a {
    }
 
    @include breakpoint(md) {
+      text-decoration: none;
       position: relative;
 
       &::before {
