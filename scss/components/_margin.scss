@@ -7,7 +7,6 @@
       }
    
    &>* {
-      // border: 1px solid blue;
       margin-bottom: 1rem;
 
       @include breakpoint(md) {
@@ -16,6 +15,27 @@
 
       @include breakpoint(xl) {
          margin-bottom: 2.5rem;
+      }
+   }
+}
+
+.margintop {
+
+   margin-top: 1.5rem;
+
+   @include breakpoint(lg) {
+      margin-top: 2rem;
+   }
+
+   &>* {
+      margin-top: 1rem;
+
+      @include breakpoint(md) {
+         margin-top: 2rem;
+      }
+
+      @include breakpoint(xl) {
+         margin-top: 2.5rem;
       }
    }
 }

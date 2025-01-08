@@ -45,7 +45,7 @@ h1,
 h2,
 .h2 {
    @include text(calc(1rem + 4.75vw), 130%, 700);
-   letter-spacing: -0.02em;
+   // letter-spacing: -0.02em;
    margin-bottom: 2rem;
 
    @include breakpoint(md) {
@@ -60,15 +60,6 @@ h2,
       margin-bottom: 4rem;
    }
 }
-
-// h3,
-// .h3 {
-//    @include text(30rem, 110%, 700);
-//    font-size: calc(1.5rem + 2vw);
-//    letter-spacing: -0.01em;
-//    margin-bottom: 3rem;
-//    color: red;
-// }
 
 
 // Transform

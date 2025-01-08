@@ -7,8 +7,7 @@
    --color-back3: hsl(var(--hue), var(--saturation), 89%);
    --color-back4: hsl(var(--hue), var(--saturation), 85%);
    --color-bright: hsl(var(--hue), 60%, 60%);
-
-   --color-black: hsl(var(--hue), var(--saturation), 10%); //or 7
+   --color-black: hsl(var(--hue), var(--saturation), 10%);
    --color-white: #ffffff;
 
    @include theme(dark) {
