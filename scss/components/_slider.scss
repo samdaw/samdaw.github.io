@@ -2,6 +2,7 @@
    display: flex;
    align-items: center;
    position: relative;
+   flex-direction: column;
 
    .slider_counter {
       position: absolute;
@@ -50,62 +51,92 @@
          }
       }
    }
-}
 
-.slider_nav {
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-   width: 100%;
-   position: absolute;
-   top: 50%;
-   transform: translateY(-50%);
-   z-index: 10;
-   pointer-events: none;
-   visibility: hidden;
+   .slider_dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.25rem;
+      margin-top: 0.75rem;
 
-   @include breakpoint(md) {
-      visibility: visible;
-   }
-
-   button {
-      transition: all 0.2s ease-in-out;
-      pointer-events: initial;
-      background: rgba(255, 255, 255, 0.7);
-      margin: .5rem;
-      padding: .2rem;
-      border-radius: .25rem;
-      @include breakpoint(lg) {
-         margin: 1.5rem;
-         padding: .3rem;
+      @include breakpoint(md) {
+         display: none;
       }
-      svg {
-         width: 2rem;
-         fill: none;
-         @include breakpoint(lg) {
-               width: 2.5rem;
-            }
-         path {
-            stroke: #000;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            stroke-width: 3;
+
+      .slider_dot {
+         width: 0.4rem;
+         height: 0.4rem;
+         background-color: var(--color-front);
+         opacity: 0.5;
+         border-radius: 50%;
+         transition: background-color 0.25s ease;
+
+         &.active {
+            background-color: var(--color-bright);
+            opacity: 1;
          }
       }
+   }
 
-      &:hover {
-         background: rgba(255, 255, 255, 1);
-         cursor: pointer;
+   .slider_nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      pointer-events: none;
+      visibility: hidden;
+
+      @include breakpoint(md) {
+         visibility: visible;
+      }
+
+      button {
+         transition: all 0.2s ease-in-out;
+         pointer-events: initial;
+         background: rgba(255, 255, 255, 0.7);
+         margin: .5rem;
+         padding: .2rem;
+         border-radius: .25rem;
+
+         @include breakpoint(lg) {
+            margin: 1.5rem;
+            padding: .3rem;
+         }
+
+         svg {
+            width: 2rem;
+            fill: none;
+
+            @include breakpoint(lg) {
+               width: 2.5rem;
+            }
+
+            path {
+               stroke: #000;
+               stroke-linecap: round;
+               stroke-linejoin: round;
+               stroke-width: 3;
+            }
+         }
+
+         &:hover {
+            background: rgba(255, 255, 255, 1);
+            cursor: pointer;
+         }
       }
    }
+   
 }
 
 
-// Remove scroll bar
+
+
 .slider * {
    &::-webkit-scrollbar {
       display: none;
    }
 }
-
 

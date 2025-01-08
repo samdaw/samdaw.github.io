@@ -2,94 +2,97 @@
 function updateHue() {
   var timeNow = new Date(),
   seconds = timeNow.getSeconds() * 6;
-  // ss = timeNow.getMinutes() * 6;
   document.documentElement.style.setProperty("--hue", seconds);
   console.log(seconds);
   setTimeout(updateHue, 1000);
-  // setTimeout(updateHue, 10000);
 }
 updateHue();
 
+// Add navigation and dots to the slider
+document.addEventListener("DOMContentLoaded", () => {
+   const sliders = document.querySelectorAll("[data-slider]");
 
-const sliders = document.querySelectorAll("[data-slider]");
-let currentSlide = 0
+   sliders.forEach((slider) => {
+      // Reset to first slide
+      slider.scrollLeft = 0;
 
-function slide(direction, slider) {
-   let left;
-   const { scrollLeft, clientWidth } = slider;
-
-   switch (direction) {
-      case "prev":
-         left = scrollLeft - clientWidth;
-         break;
-      case "next":
-      default:
-         left = scrollLeft + clientWidth;
-         break;
-   }
-
-   slider.scroll({
-      left,
-      behavior: "smooth"
-   });
-}
-
-
-if (sliders.length) {
-   for (let i = 0; i < sliders.length; i++) {
-
+      // Create desktop navigation
       const nav = document.createElement("nav");
       nav.classList.add("slider_nav");
 
       const prevButton = document.createElement("button");
       prevButton.title = "Previous slide";
-      prevButton.dataset.prev = true;
-      prevButton.innerHTML = `<svg viewBox="0 0 45 54" alt="Previous slide"><path d="M28 39.6 14.5 27 28 14.4"/></svg>`;
-      prevButton.addEventListener("click", () => slide("prev", sliders[i]));
-      nav.appendChild(prevButton);
+      prevButton.innerHTML = `
+      <svg viewBox="0 0 45 54" alt="Previous slide">
+        <path d="M28 39.6 14.5 27 28 14.4"/>
+      </svg>`;
+      prevButton.addEventListener("click", () => slide("prev", slider));
 
       const nextButton = document.createElement("button");
       nextButton.title = "Next slide";
-      nextButton.dataset.next = true;
-      nextButton.innerHTML = `<svg viewBox="0 0 45 54" alt="Next slide"><path d="M17 14.4 30.5 27 17 39.6"/></svg>`;
+      nextButton.innerHTML = `
+      <svg viewBox="0 0 45 54" alt="Next slide">
+        <path d="M17 14.4 30.5 27 17 39.6"/>
+      </svg>`;
+      nextButton.addEventListener("click", () => slide("next", slider));
 
-      nextButton.addEventListener("click", () => slide("next", sliders[i]));
+      nav.appendChild(prevButton);
       nav.appendChild(nextButton);
 
-      sliders[i].parentElement.insertBefore(nav, sliders[i]);
+      slider.parentElement.insertBefore(nav, slider);
 
-      // create and add counter element
+      // Create counter
       const counter = document.createElement("div");
       counter.classList.add("slider_counter");
-      counter.innerHTML = "1/" + sliders[i].children.length;
-      sliders[i].parentElement.insertBefore(counter, sliders[i]);
+      counter.textContent = `1/${slider.children.length}`;
+      slider.parentElement.insertBefore(counter, slider);
 
-      // update counter on slide
-      const options = {
-         root: sliders[i],
+      // Create dots
+      const dotsContainer = document.createElement("div");
+      dotsContainer.classList.add("slider_dots");
+
+      [...slider.children].forEach(() => {
+         const dot = document.createElement("span");
+         dot.classList.add("slider_dot");
+         dotsContainer.appendChild(dot);
+      });
+
+      slider.insertAdjacentElement("afterend", dotsContainer);
+
+      // Highlight current dot
+      const totalSlides = slider.children.length;
+      const observerOptions = {
+         root: slider,
          rootMargin: "0px",
-         threshold: 0.5
-      }
+         threshold: 0.5,
+      };
 
-      const observer = new IntersectionObserver((entries, observer) => {
-         entries.forEach(entry => {
+      const observer = new IntersectionObserver((entries) => {
+         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-               const currentSlide = entry.target.dataset.slide;
-               counter.innerHTML = currentSlide + "/" + sliders[i].children.length;
+               const visibleIndex = parseInt(entry.target.dataset.slide, 10);
+
+               counter.textContent = `${visibleIndex}/${totalSlides}`;
+
+               const allDots = dotsContainer.querySelectorAll(".slider_dot");
+               allDots.forEach((dot) => dot.classList.remove("active"));
+               allDots[visibleIndex - 1].classList.add("active");
             }
          });
-      }, options);
+      }, observerOptions);
 
-      for (let j = 0; j < sliders[i].children.length; j++) {
-         sliders[i].children[j].dataset.slide = j + 1;
-         observer.observe(sliders[i].children[j]);
-      }
+      // Tag and observe
+      [...slider.children].forEach((child, index) => {
+         child.dataset.slide = index + 1;
+         observer.observe(child);
+      });
+   });
+});
 
-      // old option to update counter on slide
-      // sliders[i].addEventListener("scroll", () => {
-      //    const currentSlide =
-      //       Math.floor(sliders[i].scrollLeft / sliders[i].clientWidth) + 1;
-      //    counter.innerHTML = currentSlide + "/" + sliders[i].children.length;
-      // });
-   }
+// Helper for desktop navigation
+function slide(direction, slider) {
+   const { scrollLeft, clientWidth } = slider;
+   const left =
+      direction === "prev" ? scrollLeft - clientWidth : scrollLeft + clientWidth;
+   slider.scroll({ left, behavior: "smooth" });
 }
