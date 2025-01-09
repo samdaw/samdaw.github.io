@@ -6,7 +6,7 @@
 header {
    padding-bottom: 0rem;
    .blob {
-      margin-top: 8rem;
+      margin-top: 5rem;
       @include breakpoint(md) {
          margin-top: 5rem;
       }
