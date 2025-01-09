@@ -12,13 +12,13 @@ html {
 
 // Paragraph
 p {
-   @include text(calc(0.75rem + 0.8vmin), 160%, 400);
+   @include text(calc(0.8rem + 0.75vmin), 160%, 400);
    margin-bottom: .75rem;
 }
 
 .p1,
 .p1 p {
-   @include text(calc(.95rem + 0.8vmin), 160%, 400);
+   @include text(calc(1rem + 0.75vmin), 160%, 400);
 }
 
 
@@ -26,7 +26,7 @@ p {
 h1,
 .h1 {
    @include text(calc(1.2rem + 6.25vw), 125%, 700);
-   letter-spacing: -0.02rem;
+   // letter-spacing: -0.02rem;
    margin-bottom: 3rem;
 
    @include breakpoint(md) {
