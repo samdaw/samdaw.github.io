@@ -17,9 +17,9 @@
       font-weight: 500;
       letter-spacing: .05rem;
 
-      @include breakpoint(md) {
-         display: none;
-      }
+      // @include breakpoint(md) {
+      //    display: none;
+      // }
    }
 
    .slider_slides {
@@ -130,9 +130,6 @@
    }
    
 }
-
-
-
 
 .slider * {
    &::-webkit-scrollbar {

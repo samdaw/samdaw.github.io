@@ -83,6 +83,10 @@ ul {
    margin-left: 18px;
 }
 
+.alignright {
+   text-align: right;
+}
+
 
 // Links
 a {
@@ -118,3 +122,19 @@ a {
       }
    }
 }
+
+// Focus
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+   outline: 4px solid var(--color-bright);
+   outline-offset: 2px;
+   border-radius: 0;
+}
+
+:focus-visible {
+   outline: 4px solid var(--color-bright);
+   outline-offset: 2px;
+}
+
