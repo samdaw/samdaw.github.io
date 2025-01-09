@@ -2,21 +2,21 @@
 section,
 header,
 footer {
-   padding-top: 3rem;
+   padding-top: 5rem;
    padding-bottom: 3rem;
 
    @include breakpoint(md) {
-      padding-top: 4rem;
+      padding-top: 6rem;
       padding-bottom: 4rem;
    }
 
    @include breakpoint(lg) {
-      padding-top: 5rem;
+      padding-top: 7rem;
       padding-bottom: 5rem;
    }
 
    @include breakpoint(xl) {
-      padding-top: 6rem;
+      padding-top: 8rem;
       padding-bottom: 6rem;
    }
 }

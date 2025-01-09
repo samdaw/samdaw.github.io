@@ -4,7 +4,7 @@ function updateHue() {
   seconds = timeNow.getSeconds() * 6;
   document.documentElement.style.setProperty("--hue", seconds);
   console.log(seconds);
-  setTimeout(updateHue, 1000);
+  setTimeout(updateHue, 1500);
 }
 updateHue();
 

@@ -26,7 +26,7 @@ p {
 h1,
 .h1 {
    @include text(calc(1.2rem + 6.25vw), 125%, 700);
-   letter-spacing: -0.02em;
+   letter-spacing: -0.02rem;
    margin-bottom: 3rem;
 
    @include breakpoint(md) {

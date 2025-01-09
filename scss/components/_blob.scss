@@ -1,35 +1,18 @@
 .blob {
    color: var(--color-bright);
-   @include text(calc(1.2rem + 6.25vw), 125%, 700);
-
-   @include breakpoint(md) {
-      height: 4rem;
-      width: 4rem;
-   }
-
-   @include breakpoint(lg) {
-      height: 4.5rem;
-      width: 4.5rem;
-   }
-
-   @include breakpoint(xl) {
-      height: 5rem;
-      width: 5rem;
-   }
+   @include text(calc(1.2rem + 6.25vw), 125%, 800);
 }
 
 header {
+   padding-bottom: 0rem;
    .blob {
-      // borrowed from section spacing, could combine
       margin-top: 8rem;
       @include breakpoint(md) {
          margin-top: 5rem;
       }
-
       @include breakpoint(lg) {
          margin-top: 5rem;
       }
-
       @include breakpoint(xl) {
          margin-top: 6rem;
       }
@@ -39,15 +22,12 @@ header {
 footer {
    .blob {
       margin-bottom: 4rem;
-
       @include breakpoint(md) {
          margin-bottom: 6rem;
       }
-   
       @include breakpoint(lg) {
          margin-bottom: 8rem;
       }
-   
       @include breakpoint(xl) {
          margin-bottom: 10rem;
       }
