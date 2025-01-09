@@ -8,16 +8,9 @@
 
 .experience {
    @include theme(light) {
-      background: #ffffff;
+      background: var(--color-white);
    }
-}
-
-
-.profile {
-   picture {
-      img,
-      &::before {
-         border-radius: .5rem;
-      }
+   @include theme(dark) {
+      background: var(--color-back);
    }
 }

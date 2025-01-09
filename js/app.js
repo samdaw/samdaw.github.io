@@ -22,18 +22,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const prevButton = document.createElement("button");
       prevButton.title = "Previous slide";
-      prevButton.innerHTML = `
-      <svg viewBox="0 0 45 54" alt="Previous slide">
-        <path d="M28 39.6 14.5 27 28 14.4"/>
-      </svg>`;
+      prevButton.innerHTML = `‹`;
+      
       prevButton.addEventListener("click", () => slide("prev", slider));
 
       const nextButton = document.createElement("button");
       nextButton.title = "Next slide";
-      nextButton.innerHTML = `
-      <svg viewBox="0 0 45 54" alt="Next slide">
-        <path d="M17 14.4 30.5 27 17 39.6"/>
-      </svg>`;
+      nextButton.innerHTML = `›`;
       nextButton.addEventListener("click", () => slide("next", slider));
 
       nav.appendChild(prevButton);

@@ -21,35 +21,35 @@
 header {
    .blob {
       // borrowed from section spacing, could combine
-      margin-top: 6rem;
+      margin-top: 8rem;
       @include breakpoint(md) {
-         margin-top: 8rem;
+         margin-top: 5rem;
       }
 
       @include breakpoint(lg) {
-         margin-top: 10rem;
+         margin-top: 5rem;
       }
 
       @include breakpoint(xl) {
-         margin-top: 12rem;
+         margin-top: 6rem;
       }
    }
 }
 
 footer {
    .blob {
-      margin-bottom: 6rem;
+      margin-bottom: 4rem;
 
       @include breakpoint(md) {
-         margin-bottom: 8rem;
+         margin-bottom: 6rem;
       }
    
       @include breakpoint(lg) {
-         margin-bottom: 10rem;
+         margin-bottom: 8rem;
       }
    
       @include breakpoint(xl) {
-         margin-bottom: 12rem;
+         margin-bottom: 10rem;
       }
    }
 }
