@@ -2,6 +2,7 @@
    color: var(--color-bright);
    @include text(calc(2.5rem + 6.25vw), 100%, 400);
    cursor: pointer;
+   transform-origin: center;
    transition: opacity 0.35s ease-in-out;
    &:hover {
       opacity: 0.85;

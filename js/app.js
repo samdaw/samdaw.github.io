@@ -8,46 +8,7 @@
 // }
 // updateHue();
 
-// Color theme V2, smoother?
-// let hue = 0;
-// let lastTime = 0;
-// function animateHue(timestamp) {
-//    if (!lastTime) lastTime = timestamp;
-//    const delta = timestamp - lastTime;
-
-//    if (delta > 100) { // Update hue every 100ms
-//       hue = (hue + 0.5) % 360; // By an increment of 0.5
-//       document.documentElement.style.setProperty("--hue", hue);
-//       lastTime = timestamp;
-//    }
-//    requestAnimationFrame(animateHue);
-// }
-// requestAnimationFrame(animateHue);
-
-// Color theme V3
-// document.addEventListener("DOMContentLoaded", () => {
-//    let timeNow = new Date();
-//    let initialHue = (timeNow.getSeconds() * 6) % 360;
-//    document.documentElement.style.setProperty("--hue", initialHue);
-
-//    let hue = initialHue;
-//    let lastTime = 0;
-
-//    function animateHue(timestamp) {
-//       if (!lastTime) lastTime = timestamp;
-//       const delta = timestamp - lastTime;
-
-//       if (delta > 100) {
-//          hue = (hue + 0.5) % 360;
-//          document.documentElement.style.setProperty("--hue", hue);
-//          lastTime = timestamp;
-//       }
-//       requestAnimationFrame(animateHue);
-//    }
-//    requestAnimationFrame(animateHue);
-// });
-
-// Color theme V4
+// Color theme V5
 document.addEventListener("DOMContentLoaded", () => {
    let timeNow = new Date();
    let initialHue = (timeNow.getSeconds() * 6) % 360;
@@ -56,6 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
    let hue = initialHue;
    let lastTime = 0;
    let speedUp = false;
+
+   let osDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+   let isDark = osDark;
+   document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light");
 
    function animateHue(timestamp) {
       if (!lastTime) lastTime = timestamp;
@@ -72,11 +37,14 @@ document.addEventListener("DOMContentLoaded", () => {
       requestAnimationFrame(animateHue);
    }
    requestAnimationFrame(animateHue);
+
    const blobButtons = document.querySelectorAll(".blob");
    blobButtons.forEach((btn) => {
       btn.addEventListener("click", () => {
          speedUp = true;
          btn.classList.add("spin");
+         isDark = !isDark;
+         document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light");
       });
 
       btn.addEventListener("animationend", (e) => {
@@ -87,7 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
    });
 });
-
 
 // Add navigation and dots to the slider
 document.addEventListener("DOMContentLoaded", () => {
