@@ -1,11 +1,10 @@
 .blob {
    color: var(--color-bright);
-   @include text(calc(3rem + 6.25vw), 125%, 700);
+   @include text(calc(2.5rem + 6.25vw), 100%, 400);
    cursor: pointer;
    transition: opacity 0.35s ease-in-out;
    &:hover {
       opacity: 0.85;
-      
    }
 }
 
@@ -20,7 +19,7 @@ header {
          margin-top: 5rem;
       }
       @include breakpoint(xl) {
-         margin-top: 3rem;
+         margin-top: 5rem;
       }
    }
 }
