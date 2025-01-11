@@ -2,7 +2,7 @@
 html {
    font-size: 16px;
    font-family: 'Inter', sans-serif;
-   color: var(--color-front);
+   color: var(--color-front1);
 }
 
 * ::selection {
@@ -96,7 +96,7 @@ ul {
 // Links
 a {
    text-decoration: underline;
-   color: var(--color-front);
+   color: var(--color-front1);
    
    &:active {
       background-color: var(--color-bright);

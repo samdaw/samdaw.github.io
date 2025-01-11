@@ -1,12 +1,6 @@
 .experience {
 
-   @include theme(light) {
-      background: var(--color-white);
-   }
-
-   @include theme(dark) {
-      background: var(--color-back);
-   }
+   background-color: var(--color-back1);
 
    article {
       margin-bottom: 8rem;
@@ -42,7 +36,7 @@
             height: 4rem;
             margin-right: 1.5rem;
             object-fit: cover;
-            opacity: 0.9;
+            opacity: 0.85;
             flex-shrink: 0;
             img {
                border-radius: 0.25rem;
@@ -81,7 +75,7 @@
                width: 0.75rem;
                height: 0.75rem;
                border-radius: 50%;
-               background-color: var(--color-front);
+               background-color: var(--color-front1);
                opacity: 0.3;
             }
 
@@ -93,7 +87,7 @@
                top: 1.5rem;
                width: 0.125rem;
                height: calc(100% - 1.5rem);
-               background-color: var(--color-front);
+               background-color: var(--color-front1);
                opacity: 0.1;
             }            
          }

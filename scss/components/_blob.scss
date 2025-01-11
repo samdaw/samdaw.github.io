@@ -1,6 +1,12 @@
 .blob {
    color: var(--color-bright);
-   @include text(calc(1.2rem + 6.25vw), 125%, 800);
+   @include text(calc(3rem + 6.25vw), 125%, 700);
+   cursor: pointer;
+   transition: opacity 0.35s ease-in-out;
+   &:hover {
+      opacity: 0.85;
+      
+   }
 }
 
 header {
@@ -14,7 +20,7 @@ header {
          margin-top: 5rem;
       }
       @include breakpoint(xl) {
-         margin-top: 6rem;
+         margin-top: 3rem;
       }
    }
 }
@@ -31,5 +37,19 @@ footer {
       @include breakpoint(xl) {
          margin-bottom: 10rem;
       }
+   }
+}
+
+.blob.spin {
+   animation: spinOnce 1s linear 2 forwards;
+}
+
+@keyframes spinOnce {
+   0% {
+      transform: rotate(0deg);
+   }
+
+   100% {
+      transform: rotate(360deg);
    }
 }

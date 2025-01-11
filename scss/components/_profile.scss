@@ -1,9 +1,13 @@
-// .profile {
-//    picture {
+body,
+html {
+   background-color: var(--color-back3);
+}
 
-//       img,
-//       &::before {
-//          border-radius: .5rem;
-//       }
-//    }
-// }
+.profile {
+   picture {
+      img,
+      &::before {
+         border-radius: .25rem;
+      }
+   }
+}

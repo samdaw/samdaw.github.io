@@ -49,11 +49,6 @@
    font-weight: 500;
    letter-spacing: .05rem;
 
-   //Overide dark theme
-   @include theme(dark) {
-      color: var(--color-back)
-   }
-
    &::before {
       content: "";
       position: absolute;
@@ -62,13 +57,9 @@
       bottom: 0;
       right: 0;
       border-radius: 100px;
-      background: var(--color-white);
+      background: var(--color-back1);
       opacity: 0.9;
       z-index: -1;
-
-      @include theme(dark) {
-         background: var(--color-white);
-      }
    }
 
    @include breakpoint(md) {
@@ -108,11 +99,6 @@
          padding: 0.2rem 0.75rem 0.4rem 0.75rem;
          font-size: 2rem;
 
-         // Overide the dark theme
-         @include theme(dark) {
-            color: var(--color-back)
-         }
-
          &::before {
             content: "";
             position: absolute;
@@ -120,15 +106,10 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: var(--color-white);
+            background: var(--color-back1);
             opacity: 0.9;
             z-index: -1;
             transition: opacity .7s ease;
-
-            // Overide the dark theme
-            @include theme(dark) {
-               background: var(--color-white);
-            }
          }
 
          &:hover::before {
@@ -157,7 +138,7 @@
    .slider_dot {
       width: 0.4rem;
       height: 0.4rem;
-      background-color: var(--color-front);
+      background-color: var(--color-front1);
       opacity: 0.4;
       border-radius: 50%;
       transition: 0.25s ease;

@@ -1,22 +1,100 @@
-// colour theme
-function updateHue() {
-  var timeNow = new Date(),
-  seconds = timeNow.getSeconds() * 6;
-  document.documentElement.style.setProperty("--hue", seconds);
-  console.log(seconds);
-  setTimeout(updateHue, 1500);
-}
-updateHue();
+// Color theme V1
+// function updateHue() {
+//   var timeNow = new Date(),
+//   seconds = timeNow.getSeconds() * 6;
+//   document.documentElement.style.setProperty("--hue", seconds);
+//   console.log(seconds);
+//   setTimeout(updateHue, 1500);
+// }
+// updateHue();
+
+// Color theme V2, smoother?
+// let hue = 0;
+// let lastTime = 0;
+// function animateHue(timestamp) {
+//    if (!lastTime) lastTime = timestamp;
+//    const delta = timestamp - lastTime;
+
+//    if (delta > 100) { // Update hue every 100ms
+//       hue = (hue + 0.5) % 360; // By an increment of 0.5
+//       document.documentElement.style.setProperty("--hue", hue);
+//       lastTime = timestamp;
+//    }
+//    requestAnimationFrame(animateHue);
+// }
+// requestAnimationFrame(animateHue);
+
+// Color theme V3
+// document.addEventListener("DOMContentLoaded", () => {
+//    let timeNow = new Date();
+//    let initialHue = (timeNow.getSeconds() * 6) % 360;
+//    document.documentElement.style.setProperty("--hue", initialHue);
+
+//    let hue = initialHue;
+//    let lastTime = 0;
+
+//    function animateHue(timestamp) {
+//       if (!lastTime) lastTime = timestamp;
+//       const delta = timestamp - lastTime;
+
+//       if (delta > 100) {
+//          hue = (hue + 0.5) % 360;
+//          document.documentElement.style.setProperty("--hue", hue);
+//          lastTime = timestamp;
+//       }
+//       requestAnimationFrame(animateHue);
+//    }
+//    requestAnimationFrame(animateHue);
+// });
+
+// Color theme V4
+document.addEventListener("DOMContentLoaded", () => {
+   let timeNow = new Date();
+   let initialHue = (timeNow.getSeconds() * 6) % 360;
+   document.documentElement.style.setProperty("--hue", initialHue);
+
+   let hue = initialHue;
+   let lastTime = 0;
+   let speedUp = false;
+
+   function animateHue(timestamp) {
+      if (!lastTime) lastTime = timestamp;
+      const delta = timestamp - lastTime;
+
+      const threshold = speedUp ? 20 : 100;
+      const increment = speedUp ? 5 : 0.5;
+
+      if (delta > threshold) {
+         hue = (hue + increment) % 360;
+         document.documentElement.style.setProperty("--hue", hue);
+         lastTime = timestamp;
+      }
+      requestAnimationFrame(animateHue);
+   }
+   requestAnimationFrame(animateHue);
+   const blobButtons = document.querySelectorAll(".blob");
+   blobButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+         speedUp = true;
+         btn.classList.add("spin");
+      });
+
+      btn.addEventListener("animationend", (e) => {
+         if (e.animationName === "spinOnce") {
+            speedUp = false;
+            btn.classList.remove("spin");
+         }
+      });
+   });
+});
+
 
 // Add navigation and dots to the slider
 document.addEventListener("DOMContentLoaded", () => {
    const sliders = document.querySelectorAll("[data-slider]");
 
    sliders.forEach((slider) => {
-      // Reset to first slide
       slider.scrollLeft = 0;
-
-      // Create desktop navigation
       const nav = document.createElement("nav");
       nav.classList.add("slider_nav");
 
