@@ -1,15 +1,6 @@
-// Color theme V1
-// function updateHue() {
-//   var timeNow = new Date(),
-//   seconds = timeNow.getSeconds() * 6;
-//   document.documentElement.style.setProperty("--hue", seconds);
-//   console.log(seconds);
-//   setTimeout(updateHue, 1500);
-// }
-// updateHue();
-
-// Color theme V5
 document.addEventListener("DOMContentLoaded", () => {
+
+   // Setup color theme
    let timeNow = new Date();
    let initialHue = (timeNow.getSeconds() * 6) % 360;
    document.documentElement.style.setProperty("--hue", initialHue);
@@ -18,10 +9,12 @@ document.addEventListener("DOMContentLoaded", () => {
    let lastTime = 0;
    let speedUp = false;
 
+   // Detect OS preference
    let osDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
    let isDark = osDark;
    document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light");
 
+   // Change theme overtime
    function animateHue(timestamp) {
       if (!lastTime) lastTime = timestamp;
       const delta = timestamp - lastTime;
@@ -38,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
    }
    requestAnimationFrame(animateHue);
 
+   // Theme toggle
    const blobButtons = document.querySelectorAll(".blob");
    blobButtons.forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -54,21 +48,22 @@ document.addEventListener("DOMContentLoaded", () => {
          }
       });
    });
-});
 
-// Add navigation and dots to the slider
-document.addEventListener("DOMContentLoaded", () => {
-   const sliders = document.querySelectorAll("[data-slider]");
+   // Setup slider
+   const sliders = Array.from(document.querySelectorAll("[data-slider]"));
 
    sliders.forEach((slider) => {
+
+      // Reset to first image
       slider.scrollLeft = 0;
+
+      // Create desktop navigation
       const nav = document.createElement("nav");
       nav.classList.add("slider_nav");
 
       const prevButton = document.createElement("button");
       prevButton.title = "Previous slide";
       prevButton.innerHTML = `‹`;
-      
       prevButton.addEventListener("click", () => slide("prev", slider));
 
       const nextButton = document.createElement("button");
@@ -78,16 +73,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
       nav.appendChild(prevButton);
       nav.appendChild(nextButton);
-
       slider.parentElement.insertBefore(nav, slider);
 
-      // Create counter
+      // Create slider counter
       const counter = document.createElement("div");
       counter.classList.add("slider_counter");
       counter.textContent = `1/${slider.children.length}`;
       slider.parentElement.insertBefore(counter, slider);
 
-      // Create dots
+      // Create slider dots
       const dotsContainer = document.createElement("div");
       dotsContainer.classList.add("slider_dots");
 
@@ -99,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       slider.insertAdjacentElement("afterend", dotsContainer);
 
-      // Highlight current dot
+      // Highlight current slider dot
       const totalSlides = slider.children.length;
       const observerOptions = {
          root: slider,
@@ -111,7 +105,6 @@ document.addEventListener("DOMContentLoaded", () => {
          entries.forEach((entry) => {
             if (entry.isIntersecting) {
                const visibleIndex = parseInt(entry.target.dataset.slide, 10);
-
                counter.textContent = `${visibleIndex}/${totalSlides}`;
 
                const allDots = dotsContainer.querySelectorAll(".slider_dot");
@@ -121,18 +114,22 @@ document.addEventListener("DOMContentLoaded", () => {
          });
       }, observerOptions);
 
-      // Tag and observe
       [...slider.children].forEach((child, index) => {
          child.dataset.slide = index + 1;
          observer.observe(child);
       });
    });
+
+   window.addEventListener("load", () => {
+      sliders.forEach((slider) => {
+         slider.scrollLeft = 0;
+      });
+   });
 });
 
-// Helper for desktop navigation
+// Helper function for slider navigation
 function slide(direction, slider) {
    const { scrollLeft, clientWidth } = slider;
-   const left =
-      direction === "prev" ? scrollLeft - clientWidth : scrollLeft + clientWidth;
+   const left = direction === "prev" ? scrollLeft - clientWidth : scrollLeft + clientWidth;
    slider.scroll({ left, behavior: "smooth" });
 }
