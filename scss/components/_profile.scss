@@ -1,0 +1,12 @@
+body {
+   background-color: var(--color-back3);
+}
+
+.profile {
+   picture {
+      img,
+      &::before {
+         border-radius: .25rem;
+      }
+   }
+}

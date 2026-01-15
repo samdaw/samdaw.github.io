@@ -1,0 +1,55 @@
+.blob {
+   color: var(--color-bright);
+   @include text(calc(2.5rem + 6.25vw), 100%, 400);
+   cursor: pointer;
+   transform-origin: center;
+   transition: opacity 0.35s ease-in-out;
+   &:hover {
+      opacity: 0.85;
+   }
+}
+
+header {
+   padding-bottom: 0rem;
+   .blob {
+      margin-top: 5rem;
+      @include breakpoint(md) {
+         margin-top: 5rem;
+      }
+      @include breakpoint(lg) {
+         margin-top: 5rem;
+      }
+      @include breakpoint(xl) {
+         margin-top: 5rem;
+      }
+   }
+}
+
+footer {
+   .blob {
+      margin-bottom: 4rem;
+      @include breakpoint(md) {
+         margin-bottom: 6rem;
+      }
+      @include breakpoint(lg) {
+         margin-bottom: 8rem;
+      }
+      @include breakpoint(xl) {
+         margin-bottom: 10rem;
+      }
+   }
+}
+
+.blob.spin {
+   animation: spinOnce 1s linear 2 forwards;
+}
+
+@keyframes spinOnce {
+   0% {
+      transform: rotate(0deg);
+   }
+
+   100% {
+      transform: rotate(360deg);
+   }
+}

@@ -1,0 +1,58 @@
+// Space between all sections
+section,
+header,
+footer {
+   padding-top: 5rem;
+   padding-bottom: 3rem;
+
+   @include breakpoint(md) {
+      padding-top: 6rem;
+      padding-bottom: 4rem;
+   }
+
+   @include breakpoint(lg) {
+      padding-top: 7rem;
+      padding-bottom: 5rem;
+   }
+
+   @include breakpoint(xl) {
+      padding-top: 8rem;
+      padding-bottom: 6rem;
+   }
+}
+
+// The page margin
+.nomargin {
+   margin-left: 0;
+   margin-right: 0;
+}
+
+.margin {
+   margin-left: 1.25rem;
+   margin-right: 1.25rem;
+}
+
+.nomargin,
+.margin {
+   @include breakpoint(md) {
+      margin-left: 3rem;
+      margin-right: 3rem;
+   }
+
+   @include breakpoint(lg) {
+      margin-left: 4.5rem;
+      margin-right: 4.5rem;
+   }
+
+   @include breakpoint(xl) {
+      margin-left: 5rem;
+      margin-right: 5rem;
+   }
+}
+
+html {
+   @include breakpoint(xl) {
+      max-width: $max-width;
+      margin: auto;
+   }
+}
